@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TV Caruaru</title>
+
+<style>
+body { margin:0; font-family:Arial; background:#0d0d0d; color:white; }
+header {
+background:black;
+padding:15px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:fixed;
+width:100%;
+top:0;
+z-index:1000;
+}
+header img { height:60px; }
+nav a {
+color:white;
+margin-left:20px;
+text-decoration:none;
+font-weight:bold;
+}
+nav a:hover { color:#ff3333; }
+
+.banner {
+margin-top:100px;
+position:relative;
+height:450px;
+overflow:hidden;
+}
+.slide {
+position:absolute;
+width:100%;
+height:100%;
+background-size:cover;
+background-position:center;
+opacity:0;
+transition:1s;
+}
+.slide.active { opacity:1; }
+
+.section { padding:60px 40px; text-align:center; }
+
+.live {
+background:#cc0000;
+}
+
+.live img {
+height:50px;
+}
+
+iframe {
+width:90%;
+height:400px;
+margin-top:20px;
+}
+
+.programas {
+display:flex;
+flex-wrap:wrap;
+gap:25px;
+justify-content:center;
+}
+
+.programa-card {
+background:#1a1a1a;
+width:320px;
+border-radius:10px;
+overflow:hidden;
+transition:0.3s;
+}
+.programa-card:hover { transform:scale(1.05); }
+
+.programa-card img {
+width:100%;
+height:200px;
+object-fit:cover;
+}
+
+.programa-card h3 { padding:10px; }
+
+.programacao {
+background:#111;
+}
+
+.programacao-lista {
+max-width:900px;
+margin:auto;
+text-align:left;
+}
+
+.programacao-lista div {
+padding:8px 0;
+border-bottom:1px solid #333;
+}
+
+.galeria {
+display:flex;
+flex-wrap:wrap;
+gap:20px;
+justify-content:center;
+}
+
+.galeria img {
+width:300px;
+border-radius:10px;
+}
+
+footer {
+background:black;
+padding:40px;
+text-align:center;
+margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<img src="assets/logo.png">
+<nav>
+<a href="#">Início</a>
+<a href="#ao-vivo">Ao Vivo</a>
+<a href="#programas">Programas</a>
+<a href="#programacao">Programação</a>
+<a href="#galeria">Galeria</a>
+<a href="#contato">Contato</a>
+</nav>
+</header>
+
+<div class="banner">
+<div class="slide active" style="background-image:url('assets/banner1.jpg')"></div>
+<div class="slide" style="background-image:url('assets/banner2.jpg')"></div>
+<div class="slide" style="background-image:url('assets/banner3.jpg')"></div>
+</div>
+
+<section class="section live" id="ao-vivo">
+<h2>🔴 AO VIVO AGORA</h2>
+<img src="assets/gif1.gif">
+<iframe src="https://www.youtube.com/embed/live_stream?channel=SEU_CANAL_AQUI" frameborder="0" allowfullscreen></iframe>
+</section>
+
+<section class="section" id="programas">
+<h2>Nossos Programas</h2>
+
+<div class="programas">
+
+<div class="programa-card">
+<img src="assets/programa1.jpg">
+<h3>TeleNotícias</h3>
+<p>Informação rápida e dinâmica todos os dias.</p>
+</div>
+
+<div class="programa-card">
+<img src="assets/programa2.jpg">
+<h3>Compacto Esporte</h3>
+<p>Resumo completo do esporte regional.</p>
+</div>
+
+<div class="programa-card">
+<img src="assets/programa3.jpg">
+<h3>Caruaru da Criança</h3>
+<p>Entretenimento para o público infantil.</p>
+</div>
+
+</div>
+</section>
+
+<section class="section programacao" id="programacao">
+<h2>Grade de Programação - Segunda a Sexta</h2>
+
+<div class="programacao-lista">
+<div>05:00 - O Despertar da Fé</div>
+<div>06:00 - Bom Dia Esperança</div>
+<div>08:00 - Casos e Crimes</div>
+<div>12:00 - TeleNotícias 1º edição</div>
+<div>18:30 - TeleNotícias 2º edição</div>
+<div>20:00 - Compacto Esporte</div>
+<div>22:00 - Jornal Compacto</div>
+<div>01:50 - Encerramento</div>
+</div>
+
+<img src="assets/gif2.gif" style="margin-top:30px; height:60px;">
+
+</section>
+
+<section class="section" id="galeria">
+<h2>Momentos da TV Caruaru</h2>
+
+<div class="galeria">
+<img src="assets/banner1.jpg">
+<img src="assets/banner2.jpg">
+<img src="assets/banner3.jpg">
+<img src="assets/gif3.gif">
+</div>
+
+</section>
+
+<section class="section" id="contato">
+<h2>Contato</h2>
+<p>Email: contato@tvcaruaru.com</p>
+<p>YouTube • Instagram • Facebook</p>
+</section>
+
+<footer>
+© 2026 TV Caruaru - Todos os direitos reservados
+</footer>
+
+<script>
+let slides = document.querySelectorAll(".slide");
+let index = 0;
+setInterval(()=>{
+slides[index].classList.remove("active");
+index = (index + 1) % slides.length;
+slides[index].classList.add("active");
+}, 4000);
+</script>
+
+</body>
+</html>
